@@ -239,46 +239,55 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-const skeletonWrapper = document.getElementById("skeleton-wrapper");
-const speech = document.getElementById("speech");
+    const skeletonWrapper = document.getElementById("skeleton-wrapper");
+    const speech = document.getElementById("speech");
 
-const messages = [
-  "👋 Need help growing your stream?",
-  "💡 Try our AI bots for Twitch!",
-  "🎨 Custom overlays to wow your viewers!",
-  "🚀 Grow your channel effortlessly!",
-  "want a one piece themed overlay?",
-  "whatever design you can think of shall be delivered",
-  "want advice on streaming?"
-];
+    const messages = [
+      "👋 Need help growing your stream?",
+      "💡 Try our AI bots for Twitch!",
+      "🎨 Custom overlays to wow your viewers!",
+      "🚀 Grow your channel effortlessly!",
+      "Want a One Piece themed overlay?",
+      "Whatever design you can think of shall be delivered",
+      "Want advice on streaming?"
+    ];
 
-let msgIndex = 0;
-let messageInterval;
+    let msgIndex = 0;
+    let messageInterval;
 
-if(skeletonWrapper && speech){
-  skeletonWrapper.addEventListener("mouseenter", ()=>{
-    speech.textContent = messages[msgIndex];
-    speech.classList.add("show");
-    if(skeletonWrapper && speech){
-      if(window.innerWidth <= 768){ // mobile
-        skeletonWrapper.addEventListener("click", ()=>{
-          speech.textContent = messages[msgIndex];
-          speech.classList.add("show");
-
-          messageInterval = setInterval(() => {
-            msgIndex = (msgIndex + 1) % messages.length;
-            speech.textContent = messages[msgIndex];
-          }, 3000);
-        });
-
-        skeletonWrapper.addEventListener("touchend", ()=>{
-          setTimeout(()=>{
-            speech.classList.remove("show");
-            clearInterval(messageInterval);
-          }, 6000);
-        });
-      }
+    function showMessageCycle() {
+      messageInterval = setInterval(() => {
+        msgIndex = (msgIndex + 1) % messages.length;
+        speech.textContent = messages[msgIndex];
+      }, 3000);
     }
+
+    if (skeletonWrapper && speech) {
+      // Desktop hover
+      skeletonWrapper.addEventListener("mouseenter", () => {
+        speech.textContent = messages[msgIndex];
+        speech.classList.add("show");
+        showMessageCycle();
+      });
+      skeletonWrapper.addEventListener("mouseleave", () => {
+        speech.classList.remove("show");
+        clearInterval(messageInterval);
+      });
+
+      // Mobile click/tap
+      skeletonWrapper.addEventListener("click", () => {
+        speech.textContent = messages[msgIndex];
+        speech.classList.add("show");
+        showMessageCycle();
+
+        // Hide after 6s on mobile
+        setTimeout(() => {
+          speech.classList.remove("show");
+          clearInterval(messageInterval);
+        }, 6000);
+      });
+    }
+
 
     // Cycle messages every 3s while hovering
     messageInterval = setInterval(() => {

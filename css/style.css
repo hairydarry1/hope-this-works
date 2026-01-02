@@ -131,6 +131,29 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 30px 60px rgba(124,58,237,0.6);
 }
+.btn.get-started {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn.get-started:hover {
+  transform: scale(1.05);
+  background: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .btn.get-started {
+    width: 90%;
+    text-align: center;
+    padding: 14px 0;
+  }
+}
 
 /* ================================
    STAR CANVAS
@@ -586,6 +609,17 @@ canvas#stars {
   transition: all 0.3s ease;
   white-space: nowrap;
   z-index: 200;
+}
+/* Mobile - speech on the left */
+@media (max-width: 768px){
+  #speech {
+    bottom: 50%; /* vertical center relative to skeleton */
+    left: -10px; /* adjust distance from skeleton */
+    transform: translateY(50%);
+    white-space: normal;
+    max-width: 180px;
+    text-align: left;
+  }
 }
 
 #speech.show {
