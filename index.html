@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Streamingline | Twitch Growth Agency</title>
-  <a href="#contact" class="btn get-started">Get Started</a>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -33,6 +32,8 @@
     <h1>Streamingline</h1>
     <p>Your Twitch & Streaming Growth Agency</p>
     <a href="#services" class="btn btn-3d tap">Explore Services</a>
+     
+
   </section>
 
   <!-- Services Section -->
@@ -98,14 +99,17 @@
   <section id="contact" class="contact fade-in">
     <h2>Get in Touch</h2>
     <form id="contact-form" class="contact-form">
-      <input type="text" placeholder="Your Name" name="name" required>
+      <input type="text" placeholder="Your Twitch Channel" name="channel" required>
       <input type="email" placeholder="Your Email" name="email" required>
-      <textarea placeholder="Message" name="message" rows="5" required></textarea>
+      <input type="text" placeholder="Your Discord (optional)" name="discord">
+      <textarea placeholder="Message" name="message" rows="4"></textarea>
       <button type="submit" class="btn btn-3d tap">Send Message</button>
       <div id="form-success" class="form-message success">Message sent! ✅</div>
       <div id="form-error" class="form-message error">Error sending message ❌</div>
     </form>
   </section>
+
+  
   <div id="skeleton-wrapper">
     <div id="skeleton">
       <div class="skull">
@@ -127,7 +131,8 @@
     </div>
 
     <!-- Speech bubble -->
-    <div id="speech"></div>
+    <div id="speech" class="left-mobile"></div>
+
   </div>
 
   <div id="mouse-glow"></div>
