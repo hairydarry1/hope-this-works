@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Streamingline | Twitch Growth Agency</title>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,7 +20,7 @@
       <a href="#services">Services</a>
       <a href="#portfolio">Overlays</a>
       <a href="#testimonials">Reviews</a>
-      <a href="#contact" class="nav-cta">Get Started</a>
+      <a href="#contact" class="nav-cta tap">Get Started</a>
     </nav>
   </header>
 
@@ -38,7 +38,6 @@
   <section id="services" class="services fade-in">
     <h2>Our Services</h2>
     <div class="service-cards">
-      <!-- Service cards -->
       <div class="service-card ai">
         <div class="icon">🤖</div>
         <h3>AI Bots</h3>
@@ -77,10 +76,9 @@
     <h2>Overlay Demos</h2>
     <div class="carousel">
       <div class="carousel-track">
-        <!-- Add your images here -->
-        <img src="img1.png" alt="Overlay 1">
-        <img src="img2.png" alt="Overlay 2">
-        <img src="img3.png" alt="Overlay 3">
+        <img src="img/portfolio/overlay1.jpg" alt="Overlay 1">
+        <img src="img/portfolio/overlay2.jpg" alt="Overlay 2">
+        <img src="img/portfolio/overlay3.jpg" alt="Overlay 3">
       </div>
     </div>
   </section>
@@ -131,32 +129,34 @@
 
   <!-- HYBRID SWIPE + AUTO CAROUSEL SCRIPT -->
   <script>
-  const track = document.querySelector(".carousel-track");
-  let startX = 0;
-  let index = 0;
+    const track = document.querySelector(".carousel-track");
+    let startX = 0;
+    let index = 0;
 
-  if(track){
-    // Swipe
-    track.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-    track.addEventListener("touchend", e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if(diff > 50) index++;
-      if(diff < -50) index--;
-      index = Math.max(0, Math.min(index, track.children.length - 1));
-      track.style.transform = `translateX(${-index*100}%)`;
-    });
+    if(track){
+      // Swipe
+      track.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+      track.addEventListener("touchend", e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if(diff > 50) index++;
+        if(diff < -50) index--;
+        index = Math.max(0, Math.min(index, track.children.length - 1));
+        track.style.transform = `translateX(${-index*100}%)`;
+      });
 
-    // Auto-slide for desktop
-    if(window.innerWidth > 900){
-      let autoIndex = 0;
-      setInterval(()=>{
-        autoIndex = (autoIndex+1) % track.children.length;
-        track.style.transform = `translateX(${-autoIndex*100}%)`;
-      }, 5000);
+      // Auto-slide for desktop
+      if(window.innerWidth > 900){
+        let autoIndex = 0;
+        setInterval(()=>{
+          autoIndex = (autoIndex+1) % track.children.length;
+          track.style.transform = `translateX(${-autoIndex*100}%)`;
+        }, 5000);
+      }
     }
-  }
   </script>
 
+  <!-- Main JS -->
   <script src="js/main.js" defer></script>
+
 </body>
 </html>

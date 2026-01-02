@@ -555,3 +555,43 @@ a, button {
     animation: carousel-slide 20s linear infinite;
   }
 }
+/* ===== HERO TEXT RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.2rem; /* smaller font on mobile */
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn-3d {
+    padding: 10px 20px; /* smaller buttons */
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.2rem; /* shrink logo text */
+  }
+  .navbar nav a {
+    margin-left: 12px; /* reduce nav spacing */
+    font-size: 0.9rem;
+  }
+  .nav-cta {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+.hero h1, .hero p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px; /* add horizontal padding */
+  text-align: center;
+  box-sizing: border-box;
+}
